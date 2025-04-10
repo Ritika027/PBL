@@ -74,33 +74,33 @@
     width: 80%; /* Adjust image size within box */
     height: auto;
 }
-.category .animal-img[src*="dog-img"] {
-    width: 150%; /* Make it larger */
+.category .animal-img[src*="labrador retriver"] {
+    width: 90%; /* Make it larger */
     height: auto;
-    padding-right:100px;
+    /* padding-left:50px; */
 }
 
 /* Decrease the size of the Rabbit Image */
-.category .animal-img[src*="rabbit"] {
+.category .animal-img[src*="jerman shepherd"] {
     width: 60%; /* Reduce size */
     height: auto;
 }
-.category .animal-img[src*="cat"] {
+.category .animal-img[src*="golden-retriver"] {
     width: 60%; /* Reduce size */
     height: auto;
 }
-.category .animal-img[src*="cow"] {
-    width: 90%; 
-    height: auto;
-    padding-right:80px;
-}
-.category .animal-img[src*="buffalo"] {
-    width: 60%; 
+.category .animal-img[src*="pomeranian"] {
+    width: 80%; 
     height: auto;
 }
-.category .animal-img[src*="parrot"] {
-    margin-top:30px;
-    width: 55%; 
+.category .animal-img[src*="beagle"] {
+    width: 70%; 
+    height: auto;
+    padding-bottom:50px;
+}
+.category .animal-img[src*="siberian.husky"] {
+    padding-bottom:20px;
+    width: 65%; 
     height: auto;
 }
 
@@ -145,53 +145,79 @@
     margin-top:10px;
     /* padding-left:30px; */
 }
+.breed-button {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    margin-top: 5px;
+    background-color: #2b5d79; /* Orange color */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.breed-button:hover {
+    background-color: #e68900; /* Darker orange */
+}
     </style>
 </head>
 <body>
     <section class="Categories">
         <div class="categories">
-        <p><h1>Categories</h1></p>
+        <p><h1>Dog-Breads</h1></p>
         </div>
         <div class="category-imgs">
-            <a href="http://localhost:8080" class="category-link">
+            <a href="labrador.html" class="category-link">
                 <div class="category">
                     <img src="assets/Group 4.svg" class="category-box">
-                    <img src="assets/dog.png" class="animal-img">
+                    <img src="assets/labrador retriver.png" class="animal-img">
+                    <!-- <button class="breed-button">Labrador Retriever</button> -->
                 </div>
+                <!-- <div class="button"> -->
+                    <button class="breed-button">Labrador Retriever</button>
+                <!-- </div> -->
             </a>
         
-            <a href="http://localhost:4000" class="category-link">
+            <a href="jerman-shepherd.html" class="category-link">
                 <div class="category">
                     <img src="assets/Group 4.svg" class="category-box">
-                    <img src="assets/cat.png" class="animal-img">
+                    <img src="assets/jerman shepherd.png" class="animal-img">
                 </div>
+                <button class="breed-button">Jerman Shepherd</button>
             </a>
         
-            <a href="rabbit.html" class="category-link">
+            <a href="golden-retriver.html" class="category-link">
                 <div class="category">
                     <img src="assets/Group 4.svg" class="category-box">
-                    <img src="assets/rabbit.png" class="animal-img">
+                    <img src="assets/golden-retriver.png" class="animal-img">
                 </div>
+                <button class="breed-button">Golden-Retriver</button>
             </a>
-            <a href="cao.html" class="category-link">
+            <a href="pomeranian.html" class="category-link">
                 <div class="category">
                     <img src="assets/Group 4.svg" class="category-box">
-                    <img src="assets/cow.png" class="animal-img">
+                    <img src="assets/pomeranian.png" class="animal-img">
                 </div>
-            </a>
-        
-            <a href="buffalo.html" class="category-link">
-                <div class="category">
-                    <img src="assets/Group 4.svg" class="category-box">
-                    <img src="assets/buffalo.png" class="animal-img">
-                </div>
+                <button class="breed-button">pomeranian</button>
             </a>
         
-            <a href="parrot.html" class="category-link">
+            <a href="beagle.html" class="category-link">
                 <div class="category">
                     <img src="assets/Group 4.svg" class="category-box">
-                    <img src="assets/parrot.png" class="animal-img">
+                    <img src="assets/beagle.png" class="animal-img">
                 </div>
+                <button class="breed-button">Beagle</button>
+            </a>
+        
+            <a href="siberian-husky.html" class="category-link">
+                <div class="category">
+                    <img src="assets/Group 4.svg" class="category-box">
+                    <img src="assets/siberian.husky.png" class="animal-img">
+                </div>
+                <button class="breed-button">Siberian-Husky</button>
             </a>
         </div>
     </section>
