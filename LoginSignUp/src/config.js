@@ -1,38 +1,27 @@
 const mongoose = require('mongoose');
 
-const connect = mongoose.connect("mongodb://localhost:27017/Login")
+// ✅ Atlas DB URL + Sellers database
+const connect = mongoose.connect("mongodb+srv://rjhajharia2704:Vk6VBPmEb6MIKwVc@cluster0.4wflees.mongodb.net/Sellers?retryWrites=true&w=majority");
 
-// Check if database is connected
 connect.then(() => {
     console.log("✅ Database Connected Successfully");
 }).catch((err) => {
     console.error("❌ Database Connection Error:", err);
 });
 
-// Create Schema
+// ✅ Schema: REMOVE email & mobile since not sent during signup
 const Loginschema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
         unique: true
     },
-    // email: {
-    //     type: String,
-    //     required: true,
-    //     unique: true
-    // },
-    // mobile: {
-    //     type: String,
-    //     required: true,
-    //     unique: true
-    // },
     password: {
         type: String,
         required: true
     }
 });
 
-// Collection (Model)
 const collection = mongoose.model("users", Loginschema);
 
 module.exports = collection;

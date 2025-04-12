@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Furry Finders</title>
   <link rel="stylesheet" href="style1.css" />
 
-  <!-- Font Awesome (Only use one, CDN preferred) -->
+  <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -16,37 +16,156 @@
   />
 
   <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bugaloo&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Bugaloo&display=swap" rel="stylesheet"/>
+  
+  <style>
+    .profile-menu {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .profile-icon img {
+      border-radius: 50%;
+      border: 2px solid #add8e6;
+      width: 35px;
+      height: 35px;
+    }
+
+    .profile-menu .dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: white;
+      border: 1px solid #ddd;
+      list-style: none;
+      padding: 10px 0;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      border-radius: 8px;
+      min-width: 150px;
+    }
+
+    .profile-menu .dropdown li {
+      padding: 10px 20px;
+    }
+
+    .profile-menu .dropdown li a {
+      text-decoration: none;
+      color: black;
+      display: block;
+    }
+
+    .profile-menu .dropdown li:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <i class="fa-solid fa-paw"></i> FurryFinders
-    </div>
-    <nav>
-      <ul>
-        <li><a href="Category/Categories.html">Category</a></li>
-        <li><a href="ContactUs/index.html">Contact Us</a></li>
-        <li><a href="./FAQs/FAQs.html">FAQs</a></li>
-        <li>
-          <select
-            id="userRole"
-            style="padding: 2px 10px; font-size: 16px; border-radius: 5px; background-color: #add8e6; width: 120px;"
-            onchange="redirectUser()"
-          >
-            <option value="">Select...</option>
-            <option value="buyer">Buyer</option>
-            <option value="seller">Seller</option>
-          </select>
-        </li>
-        <li><a href="/">Logout</a></li>
-      </ul>
-    </nav>
-  </header>
+ <!-- Updated Header Code Snippet -->
+<header>
+  <div class="logo">
+    <i class="fa-solid fa-paw"></i> FurryFinders
+  </div>
+  <nav>
+    <ul>
+      <li><a href="Category/Categories.html">Category</a></li>
+      <li><a href="ContactUs/index.html">Contact Us</a></li>
+      <li><a href="./FAQs/FAQs.html">FAQs</a></li>
+      <li>
+        <select
+          id="userRole"
+          style="padding: 2px 10px; font-size: 16px; border-radius: 5px; background-color: #add8e6; width: 120px;"
+          onchange="redirectUser()"
+        >
+          <option value="">Select...</option>
+          <option value="buyer">Buyer</option>
+          <option value="seller">Seller</option>
+        </select>
+      </li>
+      <li class="profile-menu" onclick="toggleDropdown()">
+        <div class="profile-icon">
+          <i class="fa-solid fa-user-circle" style="font-size: 26px; color: #333;"></i>
+        </div>
+        <ul class="dropdown-menu" id="dropdownMenu">
+          <!-- <li><a href="/profile.html"><i class="fa-solid fa-user"></i> View Profile</a></li> -->
+          <li><a href="/"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
 
+  <style>
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .profile-menu {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .profile-icon {
+      padding: 5px;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 40px;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      min-width: 160px;
+      z-index: 1000;
+    }
+
+    .dropdown-menu li {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .dropdown-menu li:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-menu li a {
+      text-decoration: none;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .dropdown-menu li:hover {
+      background-color: #f5f5f5;
+    }
+  </style>
+
+  <script>
+    function toggleDropdown() {
+      const menu = document.getElementById("dropdownMenu");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+
+    window.addEventListener("click", function (e) {
+      const profile = document.querySelector(".profile-menu");
+      const menu = document.getElementById("dropdownMenu");
+
+      if (!profile.contains(e.target)) {
+        menu.style.display = "none";
+      }
+    });
+  </script>
+</header>
+
+
+  <!-- Hero Section -->
   <section class="hero">
     <div class="content">
       <h1>Furry <br /> Finders</h1>
@@ -63,6 +182,7 @@
     <div class="right-bg"></div>
   </section>
 
+  <!-- Categories -->
   <section class="Categories">
     <div class="categories">
       <h1>Categories</h1>
@@ -107,6 +227,7 @@
     </div>
   </section>
 
+  <!-- Vet Section -->
   <section class="Veterian-Doctor">
     <div class="content1">
       <h3>Meet Our Virtual Veterinarian</h3>
@@ -135,14 +256,12 @@
     </div>
   </section>
 
+  <!-- Pet Shops -->
   <section class="Pet-Shop">
     <div class="pet-container">
       <div class="pet-content">
         <button style="background-color: white; border: 1px solid black; padding: 10px; cursor: pointer;">
-          <a
-            href="./location/index.html"
-            style="text-decoration: none; color: black; font-size: 16px; font-weight: bold;"
-          >
+          <a href="./location/index.html" style="text-decoration: none; color: black; font-size: 16px; font-weight: bold;">
             Nearby Pet Shops
           </a>
         </button>
@@ -157,6 +276,7 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <section class="Footer">
     <div class="classes">
       <div class="class1">
@@ -187,7 +307,7 @@
     </div>
   </section>
 
-  <!-- Role-based redirection script -->
+  <!-- Role-based redirection -->
   <script>
     function redirectUser() {
       let role = document.getElementById("userRole").value;
@@ -212,7 +332,24 @@
     };
   </script>
 
-  <!-- Chatbase embed script -->
+  <!-- Dropdown Toggle Script (Optional, for click toggle) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const profileMenu = document.querySelector(".profile-menu");
+      const dropdown = profileMenu.querySelector(".dropdown");
+
+      profileMenu.addEventListener("click", (e) => {
+        e.stopPropagation();
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+      });
+
+      document.addEventListener("click", () => {
+        dropdown.style.display = "none";
+      });
+    });
+  </script>
+
+  <!-- Chatbase embed -->
   <script>
     (function () {
       if (!window.chatbase || window.chatbase("getState") !== "initialized") {
